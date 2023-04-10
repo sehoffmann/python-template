@@ -22,10 +22,14 @@ jobs:
   wheel_build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.branch }}
+        submodules: recursive
+
       - name: Setup Environment
         uses: ./.github/actions/setup_environment
-        with:
-          branch: ${{ inputs.branch }}
 
       - name: Build Wheel
         run: |

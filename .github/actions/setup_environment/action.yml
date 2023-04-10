@@ -1,7 +1,5 @@
 name: Setup CI Environment
 inputs:
-  branch:
-    type: string
   python-version:
     default: "3.9"
     type: string
@@ -14,13 +12,8 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
 
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ inputs.branch }}
-        submodules: recursive
-
     - name: Install CI Dependencies
+      shell: bash
       run: |
         pip install -r ci_requirements.txt
         echo "/home/runner/.local/bin" >> $GITHUB_PATH
