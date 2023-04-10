@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Environment
-        uses: ./.github/actions/setup_environment.yml
+        uses: ./.github/actions/setup_environment
         with:
           branch: ${{ inputs.branch }}
 

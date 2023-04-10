@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Environment
-        uses: ./.github/actions/setup_environment.yml
+        uses: ./.github/actions/setup_environment
 
       - name: Lint
         run: pre-commit run --all-files
